@@ -7,7 +7,7 @@ import { CreditcardService, CreditCard } from '../../Services/creditcard.service
   templateUrl: './creditcard.component.html',
   styleUrls: ['./creditcard.component.css']
 })
-export class CreditCardComponent implements OnInit {
+export class CreditcardComponent implements OnInit {
   cards: CreditCard[] = [];
 
   constructor(
