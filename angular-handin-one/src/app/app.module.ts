@@ -8,6 +8,8 @@ import { HomeComponent } from './Modules/home/home.component';
 import { TransactionsComponent } from './Modules/transactions/transactions.component';
 import { CreditcardComponent } from './Modules/creditcard/creditcard.component';
 import { CreditcardDetailComponent } from './Modules/creditcard-detail/creditcard-detail.component';
+import {TransactionslistComponent} from "./Components/transactionslist/transactionslist.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CreditcardDetailComponent } from './Modules/creditcard-detail/creditcar
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TransactionslistComponent,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
