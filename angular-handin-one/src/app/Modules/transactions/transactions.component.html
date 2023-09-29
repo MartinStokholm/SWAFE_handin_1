@@ -18,6 +18,7 @@
 
     <app-transactionslist
       [transactions]="filteredTransactions"
+      (deleteTransactionEvent)="onDeleteTransaction($event)"
     ></app-transactionslist>
   </div>
 </div>

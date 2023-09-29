@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Transaction} from "../../Services/transactions.service";
 
@@ -11,6 +11,7 @@ import {Transaction} from "../../Services/transactions.service";
 })
 export class TransactionslistComponent {
   @Input() transactions: Transaction[] = [];
+  @Output() deleteTransactionEvent = new EventEmitter<string>(); // Define the event emitter
   isExpanded: boolean[] = [];
 
   constructor() {
@@ -23,6 +24,7 @@ export class TransactionslistComponent {
   }
 
   deleteTransaction(uid: string): void {
-    // Implement delete functionality here
+    this.deleteTransactionEvent.emit(uid); // Emit the event
+    console.log(`Deleting transaction with uid ${uid}`);
   }
 }

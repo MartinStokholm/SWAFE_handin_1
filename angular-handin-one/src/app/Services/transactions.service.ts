@@ -27,7 +27,10 @@ export class TransactionsService {
   }
 
   getTransactions(): Observable<any[]> {
-    return this.httpClient.get<any[]>('http://localhost:3000/transactions');
+    return this.httpClient.get<Transaction[]>('http://localhost:3000/transactions');
   }
 
+  deleteTransaction(uid: string): Observable<any> {
+    return this.httpClient.delete<Transaction>(`http://localhost:3000/transactions/${uid}`);
+  }
 }

@@ -32,4 +32,12 @@ export class TransactionsComponent {
       return transactionDetails.includes(searchTerm);
     });
   }
+
+  // Delete a transaction
+  onDeleteTransaction(uid: string): void {
+    this.transactionService.deleteTransaction(uid).subscribe((transaction) => {
+      this.transactions = this.transactions.filter((transaction) => transaction.uid !== uid);
+      this.filteredTransactions = this.filteredTransactions.filter((transaction) => transaction.uid !== uid);
+    });
+  }
 }
