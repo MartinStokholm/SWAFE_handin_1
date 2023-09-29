@@ -14,12 +14,16 @@ export interface CreditCard {
 @Injectable({
   providedIn: 'root'
 })
-export class CreditCardService {
+export class CreditcardService {
   private cardUrl = 'http://localhost:3000/cards';
 
   constructor(private httpClient: HttpClient) { }
 
   getCards(): Observable<CreditCard[]> {
     return this.httpClient.get<CreditCard[]>(this.cardUrl);
+  }
+
+  getCard(cardNumber: string): Observable<CreditCard> {
+    return this.httpClient.get<CreditCard>(`${this.cardUrl}/${cardNumber}`);
   }
 }

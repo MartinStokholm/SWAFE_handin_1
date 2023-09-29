@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CreditCardService, CreditCard } from '../../Services/credit-card.service';
+import { Router } from '@angular/router';
+import { CreditcardService, CreditCard } from '../../Services/creditcard.service';
 
 @Component({
   selector: 'app-creditcard',
@@ -9,11 +10,18 @@ import { CreditCardService, CreditCard } from '../../Services/credit-card.servic
 export class CreditCardComponent implements OnInit {
   cards: CreditCard[] = [];
 
-  constructor(private creditCardService: CreditCardService) { }
+  constructor(
+    private creditCardService: CreditcardService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.creditCardService.getCards().subscribe((cards) => {
       this.cards = cards;
     });
+  }
+
+  navigateToCardDetails(card: CreditCard): void {
+    this.router.navigate(['/creditcard', card.card_number]).then(r => console.log(r));
   }
 }
