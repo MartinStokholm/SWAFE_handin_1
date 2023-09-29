@@ -1,1 +1,25 @@
-<p>transactionslist works!</p>
+<table class="m-2 p-2 min-w-full">
+  <thead>
+  <tr>
+    <th class="text-left">Transaction ID</th>
+    <th class="text-left">Amount</th>
+    <th class="text-left">Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+    *ngFor="let transaction of transactions"
+    class="hover:bg-gray-100"
+  >
+    <td class="p-4 border-t">
+      <strong>{{ transaction.uid }}</strong>
+    </td>
+    <td class="p-4 border-t">
+      {{ transaction.amount.toFixed(2) }} {{ transaction.currency }}
+    </td>
+    <td class="p-4 border-t">
+      {{ transaction.date | date }}
+    </td>
+  </tr>
+  </tbody>
+</table>
