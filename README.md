@@ -7,22 +7,22 @@ The solution will provide the accounting department with an overview of use for 
 
 # Requirement specification
 ## Functional requirements
-~~`F0` Application skeleton~~
-~~- `F0.1` Skeleton shall contain a navigation bar~~
-~~- `F0.1.1` Navigation bar shall contain links for navigation to Add credit card screen~~
-~~- `F0.1.2` Navigation bar shall contain a link for navigation to Transactions screen~~
-~~- `F0.1.3` Navigation bar shall contain a link for navigation to Home screen~~
+- `F0` ~~Application skeleton~~
+- `F0.1` ~~Skeleton shall contain a navigation bar~~
+- `F0.1.1` ~~Navigation bar shall contain links for navigation to Add credit card screen~~
+- `F0.1.2` ~~Navigation bar shall contain a link for navigation to Transactions screen~~
+- `F0.1.3` ~~Navigation bar shall contain a link for navigation to Home screen~~
   
 `F1` Home screen
 - `F1.1`: Screen shall contain a list of credit cards
 
-~~`F2` Credit card list~~
-~~- `F2.1`: List shall contain an element for each credit card~~
-~~- `F2.1.1`: List item shall contain properties `card_number`, `cardholder_name`, `issuer`~~
-~~- `F2.1.2`: Navigate to a credit card details screen when an entry is clicked/pressed~~
+`F2` ~~Credit card list~~
+- `F2.1`: ~~List shall contain an element for each credit card~~
+- `F2.1.1`: ~~List item shall contain properties `card_number`, `cardholder_name`, `issuer`~~
+- `F2.1.2`: ~~Navigate to a credit card details screen when an entry is clicked/pressed~~
 
 `F3` Credit card details screen
-~~- `F3.1` Screen shall contain elements displaying the following credit card properties: `card_number`, `cardholder_name`, `csc_code`, `expiration_date_month`, `expiration_date_year`, `issuer`~~
+- `F3.1` ~~Screen shall contain elements displaying the following credit card properties: `card_number`, `cardholder_name`, `csc_code`, `expiration_date_month`, `expiration_date_year`, `issuer`~~
 - `F3.2` Screen shall contain the option to remove the credit card
 - `F3.3` Screen shall contain a list of transactions for the credit card
 
