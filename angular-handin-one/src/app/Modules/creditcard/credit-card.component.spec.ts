@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreditCardComponent } from './credit-card.component';
+import { CreditCardComponent } from './creditcard.component';
 
-describe('CreditcardComponent', () => {
+describe('CreditCardComponent', () => {
   let component: CreditCardComponent;
   let fixture: ComponentFixture<CreditCardComponent>;
 
