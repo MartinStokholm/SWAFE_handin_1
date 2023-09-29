@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Modules/navbar/navbar.component';
 import { HomeComponent } from './Modules/home/home.component';
 import { TransactionsComponent } from './Modules/transactions/transactions.component';
-import { CreditcardComponent } from './Modules/creditcard/creditcard.component';
+import { CreditCardComponent } from './Modules/creditcard/credit-card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { CreditcardComponent } from './Modules/creditcard/creditcard.component';
     NavbarComponent,
     HomeComponent,
     TransactionsComponent,
-    CreditcardComponent
+    CreditCardComponent
   ],
   imports: [
     BrowserModule,
