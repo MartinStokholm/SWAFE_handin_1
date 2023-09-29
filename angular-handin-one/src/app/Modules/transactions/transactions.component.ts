@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import {TransactionsService} from "../../Services/transactions.service";
+import {Component} from '@angular/core';
+import {Transaction, TransactionsService} from "../../Services/transactions.service";
 import {Router} from "@angular/router";
-import {Transaction} from "../../Components/transactionslist/transactionslist.component";
 
 @Component({
   selector: 'app-transactions',
@@ -16,7 +15,8 @@ export class TransactionsComponent {
   constructor(
     private transactionService: TransactionsService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((transactions) => {

@@ -1,21 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-export interface Transaction {
-  credit_card: {
-    card_number: number;
-    csc_code: number;
-    cardholder_name: string;
-    expiration_date_month: number;
-    expiration_date_year: number;
-    issuer: string;
-  };
-  uid: string;
-  amount: number;
-  comment: string;
-  date: number;
-  currency: string;
-}
+import {Component, Input} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Transaction} from "../../Services/transactions.service";
 
 @Component({
   selector: 'app-transactionslist',
@@ -25,5 +10,19 @@ export interface Transaction {
   styleUrls: ['./transactionslist.component.css']
 })
 export class TransactionslistComponent {
-  @Input() transactions: any[] = [];
+  @Input() transactions: Transaction[] = [];
+  isExpanded: boolean[] = [];
+
+  constructor() {
+    // Initialize isExpanded array with the same length as transactions, all set to false initially
+    this.isExpanded = new Array(this.transactions.length).fill(false);
+  }
+
+  toggleExpand(index: number): void {
+    this.isExpanded[index] = !this.isExpanded[index];
+  }
+
+  deleteTransaction(uid: string): void {
+    // Implement delete functionality here
+  }
 }
