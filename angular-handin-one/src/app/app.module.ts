@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './Modules/navbar/navbar.component';
+import { NavbarComponent } from './Modules/Navigationbar/navbar.component';
 import { HomeComponent } from './Modules/home/home.component';
 import { TransactionsComponent } from './Modules/transactions/transactions.component';
-import { CreditcardComponent } from './Modules/creditcard/creditcard.component';
+import { CreditCardComponent } from './Modules/CreditCard/creditcard.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { CreditcardComponent } from './Modules/creditcard/creditcard.component';
     NavbarComponent,
     HomeComponent,
     TransactionsComponent,
-    CreditcardComponent
+    CreditCardComponent
   ],
   imports: [
     BrowserModule,
