@@ -11,6 +11,7 @@ import {CreditcardDetailComponent} from './Modules/creditcard-detail/creditcard-
 import {TransactionslistComponent} from "./Components/transactionslist/transactionslist.component";
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
+import { DateJoinPipe } from './date-join.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {NgOptimizedImage} from "@angular/common";
     TransactionsComponent,
     CreditcardComponent,
     CreditcardDetailComponent,
+    DateJoinPipe,
   ],
   imports: [
     BrowserModule,

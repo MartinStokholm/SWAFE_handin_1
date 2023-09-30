@@ -2,5 +2,11 @@
   <h2 class="text-xl font-bold">Card Details</h2>
   <p><strong>Card Number:</strong> {{ selectedCard?.card_number }}</p>
   <p><strong>Cardholder Name:</strong> {{ selectedCard?.cardholder_name }}</p>
+  <p><strong>CSC:</strong> {{ selectedCard?.csc_code }}</p>
+  <p><strong>Expiration date: </strong>
+    {{ selectedCard?.expiration_date_month |
+      dateJoin: selectedCard?.expiration_date_year }}
+  </p>
   <p><strong>Issuer:</strong> {{ selectedCard?.issuer }}</p>
+
 </div>
