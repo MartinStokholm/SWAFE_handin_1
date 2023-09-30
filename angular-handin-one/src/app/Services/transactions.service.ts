@@ -30,6 +30,10 @@ export class TransactionsService {
     return this.httpClient.get<Transaction[]>('http://localhost:3000/transactions');
   }
 
+  postTransaction(transaction: Transaction): Observable<any> {
+    return this.httpClient.post<Transaction>('http://localhost:3000/transactions', transaction);
+  }
+
   deleteTransaction(uid: string): Observable<any> {
     return this.httpClient.delete<Transaction>(`http://localhost:3000/transactions/${uid}`);
   }
