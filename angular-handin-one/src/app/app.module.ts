@@ -10,6 +10,7 @@ import {CreditcardComponent} from './Modules/creditcard/creditcard.component';
 import {CreditcardDetailComponent} from './Modules/creditcard-detail/creditcard-detail.component';
 import {TransactionslistComponent} from "./Components/transactionslist/transactionslist.component";
 import {FormsModule} from "@angular/forms";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     AppRoutingModule,
     TransactionslistComponent,
-    FormsModule
+    FormsModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

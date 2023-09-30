@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Transaction, TransactionsService} from "../../Services/transactions.service";
-import {CreditcardService} from "../../Services/creditcard.service";
+import {CreditCard, CreditcardService} from "../../Services/creditcard.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,22 +12,22 @@ export class TransactionsComponent {
   transactions: any[] = [];
   filterTerm: string = '';
   filteredTransactions: Transaction[] = [];
-  showTransaction: boolean = false;
-  selectedCard: any; // You need to define the type for selectedCard
-  cardList: any[] = []; // Populate this array with your card data
-  newTransaction: Transaction = {
-    credit_card: {
-      card_number: 0, // Initialize with default values
+  selectedCard: CreditCard =
+    {
+      card_number: 0,
+      issuer: "",
+      cardholder_name: "",
       csc_code: 0,
-      cardholder_name: '',
       expiration_date_month: 0,
-      expiration_date_year: 0,
-      issuer: '',
-    },
+      expiration_date_year: 0
+    };
+  cardList: CreditCard[] = []; // Populate this array with your card data
+  newTransaction: Transaction = {
+    credit_card: this.selectedCard,
     uid: '',
     amount: 0,
     comment: '',
-    date: 0,
+    date: Date.now(),
     currency: '',
   };
 
@@ -69,57 +69,11 @@ export class TransactionsComponent {
     });
   }
 
-  // Method to show the transaction form
-  showTransactionForm() {
-    this.showTransaction = true;
-  }
-
   // Method to add a new transaction
   addTransaction() {
+    console.log(`Adding transaction for card ${this.selectedCard.card_number}`)
+    this.newTransaction.credit_card = this.selectedCard;
     this.transactionService.postTransaction(this.newTransaction).subscribe((transaction: Transaction) => {
     });
-
-    // Reset the form
-    this.newTransaction = {
-      credit_card: {
-        card_number: 0,
-        csc_code: 0,
-        cardholder_name: '',
-        expiration_date_month: 0,
-        expiration_date_year: 0,
-        issuer: '',
-      },
-      uid: '',
-      amount: 0,
-      comment: '',
-      date: 0,
-      currency: '',
-    };
-
-    // Hide the form
-    this.showTransaction = false;
-  }
-
-  // Method to cancel adding a transaction
-  cancelTransaction() {
-    // Reset the form
-    this.newTransaction = {
-      credit_card: {
-        card_number: 0,
-        csc_code: 0,
-        cardholder_name: '',
-        expiration_date_month: 0,
-        expiration_date_year: 0,
-        issuer: '',
-      },
-      uid: '',
-      amount: 0,
-      comment: '',
-      date: 0,
-      currency: '',
-    };
-
-    // Hide the form
-    this.showTransaction = false;
   }
 }
