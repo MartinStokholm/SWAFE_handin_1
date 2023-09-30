@@ -9,7 +9,7 @@ import {Transaction, TransactionsService} from '../../Services/transactions.serv
   styleUrls: ['./creditcard-detail.component.css']
 })
 export class CreditcardDetailComponent implements OnInit {
-  selectedCard: CreditCard | undefined = undefined;
+  selectedCard: CreditCard = {} as CreditCard;
   relatedTransactions: Transaction[] = [];
 
   constructor(
