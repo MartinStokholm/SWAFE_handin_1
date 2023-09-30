@@ -1,12 +1,12 @@
 <h1 class=" p-4 pl-8 text-2xl bg-zinc-300 italic">Cards Overview</h1>
 
-<div class="py-8 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<div class="p-8 flex flex-col justify-center gap-8">
   <div
     *ngFor="let card of cards"
-    class="hover:scale-105 hover:drop-shadow-2xl rounded-tl-3xl p-4 border rounded cursor-pointer bg-zinc-300 shadow"
+    class="hover:scale-105 hover:drop-shadow-2xl rounded-tl-3xl p-4 border rounded cursor-pointer bg-zinc-300 shadow max-w-[800px]"
     (click)="navigateToCardDetails(card)"
   >
-    <div class="flex justify-between px-1 py-2 bg-amber-50 min-h-12 rounded-br-3xl ">
+    <div class="flex justify-between px-1 py-2 bg-amber-50 min-h-12 rounded-br-3xl">
       <p class="font-semibold p-2">{{ card.issuer.slice(0, 10) }}</p>
       <p class="p-2 font-light">{{ card.card_number }}</p>
     </div>
