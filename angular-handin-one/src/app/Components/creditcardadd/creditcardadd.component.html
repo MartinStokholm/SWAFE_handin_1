@@ -1,6 +1,9 @@
-<form (ngSubmit)="onSubmit()" #creditCardForm="ngForm">
+<h1 class=" p-4 pl-8 text-2xl bg-zinc-300 italic">Add Card</h1>
+
+<form class="flex flex-col gap-4 p-8 border-2 mx-8 max-w-[600px]" (ngSubmit)="onSubmit()"
+      #creditCardForm="ngForm">
   <!-- Card Number -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="cardNumber">Card Number:</label>
     <input
       type="number"
@@ -15,8 +18,8 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber'].dirty ||
-          creditCardForm.controls['cardNumber'].touched) &&
+        (creditCardForm.controls['cardNumber']?.dirty ||
+          creditCardForm.controls['cardNumber']?.touched) &&
         creditCardForm.controls['cardNumber'].errors?.['required']
       "
       class="text-red-500"
@@ -25,8 +28,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber'].dirty ||
-          creditCardForm.controls['cardNumber'].touched) &&
+        (creditCardForm.controls['cardNumber']?.dirty ||
+          creditCardForm.controls['cardNumber']?.touched) &&
         creditCardForm.controls['cardNumber'].errors?.['pattern']
       "
       class="text-red-500"
@@ -35,8 +38,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber'].dirty ||
-          creditCardForm.controls['cardNumber'].touched) &&
+        (creditCardForm.controls['cardNumber']?.dirty ||
+          creditCardForm.controls['cardNumber']?.touched) &&
         creditCardForm.controls['cardNumber'].errors?.['minlength']
       "
       class="text-red-500"
@@ -45,8 +48,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber'].dirty ||
-          creditCardForm.controls['cardNumber'].touched) &&
+        (creditCardForm.controls['cardNumber']?.dirty ||
+          creditCardForm.controls['cardNumber']?.touched) &&
         creditCardForm.controls['cardNumber'].errors?.['maxlength']
       "
       class="text-red-500"
@@ -56,7 +59,7 @@
   </div>
 
   <!-- Cardholder Name -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="cardholderName">Cardholder Name:</label>
     <input
       type="text"
@@ -68,8 +71,8 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cardholderName'].dirty ||
-          creditCardForm.controls['cardholderName'].touched) &&
+        (creditCardForm.controls['cardholderName']?.dirty ||
+          creditCardForm.controls['cardholderName']?.touched) &&
         creditCardForm.controls['cardholderName'].errors?.['required']
       "
       class="text-red-500"
@@ -79,7 +82,7 @@
   </div>
 
   <!-- CSC Code -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="cscCode">CSC Code:</label>
     <input
       type="number"
@@ -94,8 +97,8 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode'].dirty ||
-          creditCardForm.controls['cscCode'].touched) &&
+        (creditCardForm.controls['cscCode']?.dirty ||
+          creditCardForm.controls['cscCode']?.touched) &&
         creditCardForm.controls['cscCode'].errors?.['required']
       "
       class="text-red-500"
@@ -104,8 +107,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode'].dirty ||
-          creditCardForm.controls['cscCode'].touched) &&
+        (creditCardForm.controls['cscCode']?.dirty ||
+          creditCardForm.controls['cscCode']?.touched) &&
         creditCardForm.controls['cscCode'].errors?.['pattern']
       "
       class="text-red-500"
@@ -114,8 +117,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode'].dirty ||
-          creditCardForm.controls['cscCode'].touched) &&
+        (creditCardForm.controls['cscCode']?.dirty ||
+          creditCardForm.controls['cscCode']?.touched) &&
         creditCardForm.controls['cscCode'].errors?.['minlength']
       "
       class="text-red-500"
@@ -124,8 +127,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode'].dirty ||
-          creditCardForm.controls['cscCode'].touched) &&
+        (creditCardForm.controls['cscCode']?.dirty ||
+          creditCardForm.controls['cscCode']?.touched) &&
         creditCardForm.controls['cscCode'].errors?.['maxlength']
       "
       class="text-red-500"
@@ -135,7 +138,7 @@
   </div>
 
   <!-- Expiration Date Month -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="expirationDateMonth">Expiration Date Month:</label>
     <input
       type="number"
@@ -149,8 +152,8 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth'].dirty ||
-          creditCardForm.controls['expirationDateMonth'].touched) &&
+        (creditCardForm.controls['expirationDateMonth']?.dirty ||
+          creditCardForm.controls['expirationDateMonth']?.touched) &&
         creditCardForm.controls['expirationDateMonth'].errors?.['required']
       "
       class="text-red-500"
@@ -159,8 +162,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth'].dirty ||
-          creditCardForm.controls['expirationDateMonth'].touched) &&
+        (creditCardForm.controls['expirationDateMonth']?.dirty ||
+          creditCardForm.controls['expirationDateMonth']?.touched) &&
         creditCardForm.controls['expirationDateMonth'].errors?.['min']
       "
       class="text-red-500"
@@ -169,8 +172,8 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth'].dirty ||
-          creditCardForm.controls['expirationDateMonth'].touched) &&
+        (creditCardForm.controls['expirationDateMonth']?.dirty ||
+          creditCardForm.controls['expirationDateMonth']?.touched) &&
         creditCardForm.controls['expirationDateMonth'].errors?.['max']
       "
       class="text-red-500"
@@ -180,7 +183,7 @@
   </div>
 
   <!-- Expiration Date Year -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="expirationDateYear">Expiration Date Year:</label>
     <input
       type="number"
@@ -192,8 +195,8 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateYear'].dirty ||
-          creditCardForm.controls['expirationDateYear'].touched) &&
+        (creditCardForm.controls['expirationDateYear']?.dirty ||
+          creditCardForm.controls['expirationDateYear']?.touched) &&
         creditCardForm.controls['expirationDateYear'].errors?.['required']
       "
       class="text-red-500"
@@ -203,7 +206,7 @@
   </div>
 
   <!-- Issuer (optional) -->
-  <div class="mb-4">
+  <div class="mb-4 flex justify-between">
     <label for="issuer">Issuer:</label>
     <input
       type="text"

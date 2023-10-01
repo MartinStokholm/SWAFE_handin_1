@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
+import {CreditcardService} from "../../Services/creditcard.service";
 
 @Component({
   selector: 'app-creditcardadd',
@@ -19,8 +20,13 @@ export class CreditcardaddComponent {
     issuer: ''
   };
 
+  constructor(private creditCardService: CreditcardService) {
+  }
+
   onSubmit() {
-    // Handle form submission here
-    console.log('Form submitted with data:', this.formData);
+    // Call postCard() from the CreditcardService
+    this.creditCardService.postCard(this.formData).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
