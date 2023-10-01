@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs";
 
 export interface CreditCard {
   card_number: number;
@@ -17,7 +17,8 @@ export interface CreditCard {
 export class CreditcardService {
   private cardUrl = 'http://localhost:3000/cards';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getCards(): Observable<CreditCard[]> {
     return this.httpClient.get<CreditCard[]>(this.cardUrl);
@@ -25,5 +26,9 @@ export class CreditcardService {
 
   getCard(cardNumber: string): Observable<CreditCard> {
     return this.httpClient.get<CreditCard>(`${this.cardUrl}/${cardNumber}`);
+  }
+
+  deleteCard(card_number: number) {
+    return this.httpClient.delete(`${this.cardUrl}/${card_number}`);
   }
 }

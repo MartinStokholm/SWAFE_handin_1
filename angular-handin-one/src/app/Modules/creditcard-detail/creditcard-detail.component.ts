@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CreditCard, CreditcardService} from '../../Services/creditcard.service';
 import {Transaction, TransactionsService} from '../../Services/transactions.service';
 
@@ -15,7 +15,8 @@ export class CreditcardDetailComponent implements OnInit {
   constructor(
     private transactionService: TransactionsService,
     private creditCardService: CreditcardService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
 
@@ -33,6 +34,13 @@ export class CreditcardDetailComponent implements OnInit {
           this.selectedCard = card;
         });
       }
+    });
+  }
+
+  deleteCard(card_number: number) {
+    this.creditCardService.deleteCard(card_number).subscribe((response) => {
+      this.router.navigate(['/creditcard']);
+      console.log(response);
     });
   }
 }
