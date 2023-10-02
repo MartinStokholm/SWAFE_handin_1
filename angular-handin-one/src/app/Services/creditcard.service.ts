@@ -28,14 +28,7 @@ export class CreditcardService {
     return this.httpClient.get<CreditCard>(`${this.cardUrl}/${cardNumber}`);
   }
 
-  postCard(card: {
-    expirationDateYear: null;
-    cardholderName: string;
-    cscCode: null;
-    expirationDateMonth: null;
-    cardNumber: null;
-    issuer: string
-  }) {
+  postCard(card: CreditCard) {
     return this.httpClient.post(this.cardUrl, card);
   }
 

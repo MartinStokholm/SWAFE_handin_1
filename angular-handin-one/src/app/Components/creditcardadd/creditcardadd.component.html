@@ -9,7 +9,7 @@
       type="number"
       id="cardNumber"
       name="cardNumber"
-      [(ngModel)]="formData.cardNumber"
+      [(ngModel)]="formData.card_number"
       required
       pattern="[0-9]+"
       minlength="7"
@@ -18,9 +18,9 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber']?.dirty ||
-          creditCardForm.controls['cardNumber']?.touched) &&
-        creditCardForm.controls['cardNumber'].errors?.['required']
+        (creditCardForm.controls['card_number']?.dirty ||
+          creditCardForm.controls['card_number']?.touched) &&
+        creditCardForm.controls['card_number'].errors?.['required']
       "
       class="text-red-500"
     >
@@ -28,9 +28,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber']?.dirty ||
-          creditCardForm.controls['cardNumber']?.touched) &&
-        creditCardForm.controls['cardNumber'].errors?.['pattern']
+        (creditCardForm.controls['card_number']?.dirty ||
+          creditCardForm.controls['card_number']?.touched) &&
+        creditCardForm.controls['card_number'].errors?.['pattern']
       "
       class="text-red-500"
     >
@@ -38,9 +38,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber']?.dirty ||
-          creditCardForm.controls['cardNumber']?.touched) &&
-        creditCardForm.controls['cardNumber'].errors?.['minlength']
+        (creditCardForm.controls['card_number']?.dirty ||
+          creditCardForm.controls['card_number']?.touched) &&
+        creditCardForm.controls['card_number'].errors?.['minlength']
       "
       class="text-red-500"
     >
@@ -48,9 +48,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cardNumber']?.dirty ||
-          creditCardForm.controls['cardNumber']?.touched) &&
-        creditCardForm.controls['cardNumber'].errors?.['maxlength']
+        (creditCardForm.controls['card_number']?.dirty ||
+          creditCardForm.controls['card_number']?.touched) &&
+        creditCardForm.controls['card_number'].errors?.['maxlength']
       "
       class="text-red-500"
     >
@@ -65,15 +65,15 @@
       type="text"
       id="cardholderName"
       name="cardholderName"
-      [(ngModel)]="formData.cardholderName"
+      [(ngModel)]="formData.cardholder_name"
       required
       class="p-2 border rounded"
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cardholderName']?.dirty ||
-          creditCardForm.controls['cardholderName']?.touched) &&
-        creditCardForm.controls['cardholderName'].errors?.['required']
+        (creditCardForm.controls['cardholder_name']?.dirty ||
+          creditCardForm.controls['cardholder_name']?.touched) &&
+        creditCardForm.controls['cardholder_name'].errors?.['required']
       "
       class="text-red-500"
     >
@@ -88,7 +88,7 @@
       type="number"
       id="cscCode"
       name="cscCode"
-      [(ngModel)]="formData.cscCode"
+      [(ngModel)]="formData.csc_code"
       required
       pattern="[0-9]+"
       minlength="3"
@@ -97,9 +97,9 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode']?.dirty ||
-          creditCardForm.controls['cscCode']?.touched) &&
-        creditCardForm.controls['cscCode'].errors?.['required']
+        (creditCardForm.controls['csc_code']?.dirty ||
+          creditCardForm.controls['csc_code']?.touched) &&
+        creditCardForm.controls['csc_code'].errors?.['required']
       "
       class="text-red-500"
     >
@@ -107,9 +107,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode']?.dirty ||
-          creditCardForm.controls['cscCode']?.touched) &&
-        creditCardForm.controls['cscCode'].errors?.['pattern']
+        (creditCardForm.controls['csc_code']?.dirty ||
+          creditCardForm.controls['csc_code']?.touched) &&
+        creditCardForm.controls['csc_code'].errors?.['pattern']
       "
       class="text-red-500"
     >
@@ -117,9 +117,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode']?.dirty ||
-          creditCardForm.controls['cscCode']?.touched) &&
-        creditCardForm.controls['cscCode'].errors?.['minlength']
+        (creditCardForm.controls['csc_code']?.dirty ||
+          creditCardForm.controls['csc_code']?.touched) &&
+        creditCardForm.controls['csc_code'].errors?.['minlength']
       "
       class="text-red-500"
     >
@@ -127,9 +127,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['cscCode']?.dirty ||
-          creditCardForm.controls['cscCode']?.touched) &&
-        creditCardForm.controls['cscCode'].errors?.['maxlength']
+        (creditCardForm.controls['csc_code']?.dirty ||
+          creditCardForm.controls['csc_code']?.touched) &&
+        creditCardForm.controls['csc_code'].errors?.['maxlength']
       "
       class="text-red-500"
     >
@@ -144,7 +144,7 @@
       type="number"
       id="expirationDateMonth"
       name="expirationDateMonth"
-      [(ngModel)]="formData.expirationDateMonth"
+      [(ngModel)]="formData.expiration_date_month"
       required
       min="1"
       max="12"
@@ -152,9 +152,9 @@
     />
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth']?.dirty ||
-          creditCardForm.controls['expirationDateMonth']?.touched) &&
-        creditCardForm.controls['expirationDateMonth'].errors?.['required']
+        (creditCardForm.controls['expiration_date_month']?.dirty ||
+          creditCardForm.controls['expiration_date_month']?.touched) &&
+        creditCardForm.controls['expiration_date_month'].errors?.['required']
       "
       class="text-red-500"
     >
@@ -162,9 +162,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth']?.dirty ||
-          creditCardForm.controls['expirationDateMonth']?.touched) &&
-        creditCardForm.controls['expirationDateMonth'].errors?.['min']
+        (creditCardForm.controls['expiration_date_month']?.dirty ||
+          creditCardForm.controls['expiration_date_month']?.touched) &&
+        creditCardForm.controls['expiration_date_month'].errors?.['min']
       "
       class="text-red-500"
     >
@@ -172,9 +172,9 @@
     </div>
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateMonth']?.dirty ||
-          creditCardForm.controls['expirationDateMonth']?.touched) &&
-        creditCardForm.controls['expirationDateMonth'].errors?.['max']
+        (creditCardForm.controls['expiration_date_month']?.dirty ||
+          creditCardForm.controls['expiration_date_month']?.touched) &&
+        creditCardForm.controls['expiration_date_month'].errors?.['max']
       "
       class="text-red-500"
     >
@@ -189,15 +189,15 @@
       type="number"
       id="expirationDateYear"
       name="expirationDateYear"
-      [(ngModel)]="formData.expirationDateYear"
+      [(ngModel)]="formData.expiration_date_year"
       required
       class="p-2 border rounded"
     />
     <div
       *ngIf="
-        (creditCardForm.controls['expirationDateYear']?.dirty ||
-          creditCardForm.controls['expirationDateYear']?.touched) &&
-        creditCardForm.controls['expirationDateYear'].errors?.['required']
+        (creditCardForm.controls['expiration_date_year']?.dirty ||
+          creditCardForm.controls['expiration_date_year']?.touched) &&
+        creditCardForm.controls['expiration_date_year'].errors?.['required']
       "
       class="text-red-500"
     >
