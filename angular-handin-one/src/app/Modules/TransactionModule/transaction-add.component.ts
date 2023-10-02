@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Transaction, TransactionsService} from "../../Services/transactions.service";
-import {CreditCard, CreditcardService} from "../../Services/creditcard.service";
+import {CreditCard, CreditCardService} from "../../Services/credit-card.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transaction-add',
@@ -29,7 +30,8 @@ export class TransactionAddComponent {
 
   constructor(
     private transactionService: TransactionsService,
-    private creditCardService: CreditcardService
+    private creditCardService: CreditCardService,
+    private router: Router
   ) {
     this.creditCardService.getCards().subscribe((cards) => {
       this.cardList = cards;
@@ -41,5 +43,9 @@ export class TransactionAddComponent {
     this.newTransaction.credit_card = this.selectedCard;
     this.transactionService.postTransaction(this.newTransaction).subscribe((transaction: Transaction) => {
     });
+  }
+
+  navigateToTransactions() {
+    this.router.navigate(['transaction']);
   }
 }

@@ -1,16 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {CreditcardaddComponent} from './creditcardadd.component';
+import {CreditCardAddComponent} from './credit-card-add.component';
 
 describe('CreditcardaddComponent', () => {
-  let component: CreditcardaddComponent;
-  let fixture: ComponentFixture<CreditcardaddComponent>;
+  let component: CreditCardAddComponent;
+  let fixture: ComponentFixture<CreditCardAddComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CreditcardaddComponent]
+      imports: [CreditCardAddComponent]
     });
-    fixture = TestBed.createComponent(CreditcardaddComponent);
+    fixture = TestBed.createComponent(CreditCardAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

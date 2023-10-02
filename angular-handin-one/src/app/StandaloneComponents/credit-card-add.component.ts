@@ -1,16 +1,17 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
-import {CreditCard, CreditcardService} from "../Services/creditcard.service";
+import {CreditCard, CreditCardService} from "../Services/credit-card.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-creditcardadd',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './creditcardadd.component.html',
-  styleUrls: ['./creditcardadd.component.css']
+  templateUrl: './credit-card-add.component.html',
+  styleUrls: ['./credit-card-add.component.css']
 })
-export class CreditcardaddComponent {
+export class CreditCardAddComponent {
   formData: CreditCard = {
     card_number: 12345678910,
     csc_code: 420,
@@ -20,7 +21,9 @@ export class CreditcardaddComponent {
     issuer: "aCardProvider"
   };
 
-  constructor(private creditCardService: CreditcardService) {
+  constructor(
+    private creditCardService: CreditCardService,
+    private router: Router) {
   }
 
   onSubmit() {
@@ -35,5 +38,10 @@ export class CreditcardaddComponent {
         issuer: ""
       }
     });
+  }
+
+  navigateToCards() {
+    this.router.navigate([''])
+      .then(r => console.log(r));
   }
 }

@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-  <div class="flex justify-between bg-zinc-300">
+  <div class="flex justify-between mt-8">
     <h1 class=" p-4 pl-8 text-2xl italic">Transactions overview</h1>
     <button>
       <a
@@ -9,18 +9,15 @@
       >
     </button>
   </div>
-  <div class="flex flex-col items-center">
-    <input
-      type="text"
-      class="m-8 p-4 border rounded min-w-[300px]"
-      placeholder="Filter by ID, amount or date"
-      [(ngModel)]="filterTerm"
-      (input)="filterTransactions(filterTerm)"
-    />
-    <app-transactionslist
-      [transactions]="filteredTransactions"
-      (deleteTransactionEvent)="onDeleteTransaction($event)"
-    ></app-transactionslist>
-
-  </div>
+  <input
+    type="text"
+    class="m-8 p-4 border rounded min-w-fit bg-gray-200 hover:bg-gray-300 text-black font-bold"
+    placeholder="Filter by ID, amount or date"
+    [(ngModel)]="filterTerm"
+    (input)="filterTransactions(filterTerm)"
+  />
+  <app-transactionslist
+    [transactions]="filteredTransactions"
+    (deleteTransactionEvent)="onDeleteTransaction($event)"
+  ></app-transactionslist>
 </div>

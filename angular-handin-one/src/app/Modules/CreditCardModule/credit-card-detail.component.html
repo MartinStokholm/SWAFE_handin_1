@@ -1,20 +1,24 @@
-<h1 class="p-4 pl-8 text-2xl bg-zinc-300 italic">Card Details</h1>
-<div class="flex flex-col justify-center gap-8">
+<div class="flex flex-col my-8">
+  <button
+    class="py-2 mb-8 bg-blue-400 hover:bg-blue-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
+    (click)=navigateToCards()>
+    Go back
+  </button>
 
-  <div class="my-16 mx-16 p-8 bg-zinc-200 rounded-tl-3xl max-w-[800px]">
-    <div class="flex justify-between px-1 py-2 bg-amber-50 min-h-12 rounded-br-3xl ">
+  <div class="mb-16 mx-16 p-8 bg-zinc-200 rounded-tl-3xl">
+    <div class="flex justify-between px-1 py-2 bg-amber-100 rounded-br-3xl ">
       <p class="font-semibold p-2 text-2xl">{{ selectedCard.issuer}}</p>
       <p class="p-2 text-2xl">{{ selectedCard.card_number }}</p>
     </div>
-    <div class="flex pt-4 px-auto justify-between">
-      <div>
+    <div class="flex pt-4 justify-between">
+      <div class="mr-24">
         <p class="font-light px-1 pt-2">Card holder: {{ selectedCard.cardholder_name }}</p>
         <p class="font-light px-1 pt-2"> Expiration date: {{ selectedCard.expiration_date_month |
           dateJoin: selectedCard.expiration_date_year }}</p>
         <p class="font-light px-1 pt-2">CSC: {{ selectedCard.csc_code }}</p>
       </div>
       <button
-        class="min-w-[200px] bg-blue-400 hover:bg-red-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
+        class="w-48 h-18 bg-blue-400 hover:bg-red-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
         (click)=deleteCard(selectedCard.card_number)>
         Delete Card
       </button>

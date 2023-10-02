@@ -6,7 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {TransactionslistComponent} from "../../StandaloneComponents/transactionslist.component";
 import {TransactionRoutingModule} from "./transaction-routing.module";
 import {TransactionsService} from "../../Services/transactions.service";
-import {CreditcardService} from "../../Services/creditcard.service";
+import {CreditCardService} from "../../Services/credit-card.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import {CreditcardService} from "../../Services/creditcard.service";
     TransactionRoutingModule,
     TransactionslistComponent
   ],
-  providers: [TransactionsService, CreditcardService]
+  providers: [TransactionsService, CreditCardService]
 })
 export class TransactionModule {
 }

@@ -14,7 +14,7 @@ export interface CreditCard {
 @Injectable({
   providedIn: 'root'
 })
-export class CreditcardService {
+export class CreditCardService {
   private cardUrl = 'http://localhost:3000/cards';
 
   constructor(private httpClient: HttpClient) {

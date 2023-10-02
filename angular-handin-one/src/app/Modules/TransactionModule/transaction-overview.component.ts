@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Transaction, TransactionsService} from "../../Services/transactions.service";
-import {CreditCard, CreditcardService} from "../../Services/creditcard.service";
+import {CreditCard, CreditCardService} from "../../Services/credit-card.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -17,7 +17,7 @@ export class TransactionOverviewComponent {
 
   constructor(
     private transactionService: TransactionsService,
-    private creditcardService: CreditcardService,
+    private creditcardService: CreditCardService,
     private router: Router
   ) {
     this.creditcardService.getCards().subscribe((cards) => {

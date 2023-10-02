@@ -1,45 +1,53 @@
-<!-- Transaction Form -->
-<form class="px-8 py-4" (submit)="addTransaction()">
-  <!-- Card Information -->
-  <div class="mb-4">
-    <label for="cardSelect" class="block font-semibold">Select Card:</label>
-    <select id="cardSelect" class="p-2 border rounded min-w-full" [(ngModel)]="selectedCard" name="selectedCard">
-      <option *ngFor="let card of cardList" [value]="card">{{ card.cardholder_name }}</option>
-    </select>
-  </div>
-
-  <!-- Transaction Details -->
-  <div class="mb-4">
-    <label for="amount" class="block font-semibold">Amount:</label>
-    <input type="number" id="amount" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.amount"
-           name="amount"
-           required>
-  </div>
-  <div class="mb-4">
-    <label for="comment" class="block font-semibold">Comment:</label>
-    <textarea id="comment" class="p-2 border rounded min-w-full"
-              name="comment"
-              [(ngModel)]="newTransaction.comment">
-            </textarea>
-  </div>
-  <div class="mb-4">
-    <label for="date" class="block font-semibold">Date:</label>
-    <input type="date" id="date" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.date"
-           name="date"
-           required>
-  </div>
-  <div class="mb-4">
-    <label for="currency" class="block font-semibold">Currency:</label>
-    <input type="text" id="currency" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.currency"
-           name="currency"
-           required>
-  </div>
-
-  <!-- Submit Button -->
+<div class="flex flex-col mt-8">
   <button
-    type="submit"
-    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded min-w-full"
-    (click)="addTransaction()">
-    Save Transaction
+    class="py-2 mb-8 bg-blue-400 hover:bg-blue-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
+    (click)=navigateToTransactions()>
+    Go back
   </button>
-</form>
+
+  <!-- Transaction Form -->
+  <form class="px-8 p-4 mb-16 flex flex-col" (submit)="addTransaction()">
+    <!-- Card Information -->
+    <div class="mb-4">
+      <label for="cardSelect" class="block font-semibold">Select Card:</label>
+      <select id="cardSelect" class="p-2 border rounded min-w-full" [(ngModel)]="selectedCard" name="selectedCard">
+        <option *ngFor="let card of cardList" [value]="card">{{ card.cardholder_name }}</option>
+      </select>
+    </div>
+
+    <!-- Transaction Details -->
+    <div class="mb-4">
+      <label for="amount" class="block font-semibold">Amount:</label>
+      <input type="number" id="amount" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.amount"
+             name="amount"
+             required>
+    </div>
+    <div class="mb-4">
+      <label for="comment" class="block font-semibold">Comment:</label>
+      <textarea id="comment" class="p-2 border rounded min-w-full"
+                name="comment"
+                [(ngModel)]="newTransaction.comment">
+            </textarea>
+    </div>
+    <div class="mb-4">
+      <label for="date" class="block font-semibold">Date:</label>
+      <input type="date" id="date" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.date"
+             name="date"
+             required>
+    </div>
+    <div class="mb-4">
+      <label for="currency" class="block font-semibold">Currency:</label>
+      <input type="text" id="currency" class="p-2 border rounded min-w-full" [(ngModel)]="newTransaction.currency"
+             name="currency"
+             required>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded min-w-full"
+      (click)="addTransaction()">
+      Save Transaction
+    </button>
+  </form>
+</div>

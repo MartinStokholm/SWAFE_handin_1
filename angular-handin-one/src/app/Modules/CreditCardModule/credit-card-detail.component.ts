@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CreditCard, CreditcardService} from '../../Services/creditcard.service';
+import {CreditCard, CreditCardService} from '../../Services/credit-card.service';
 import {Transaction, TransactionsService} from '../../Services/transactions.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class CreditCardDetailComponent implements OnInit {
 
   constructor(
     private transactionService: TransactionsService,
-    private creditCardService: CreditcardService,
+    private creditCardService: CreditCardService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -39,8 +39,14 @@ export class CreditCardDetailComponent implements OnInit {
 
   deleteCard(card_number: number) {
     this.creditCardService.deleteCard(card_number).subscribe((response) => {
-      this.router.navigate(['/creditcard']);
+      this.navigateToCards();
       console.log(response);
     });
+  }
+
+  protected readonly navigator = navigator;
+
+  navigateToCards() {
+    this.router.navigate(['']);
   }
 }
