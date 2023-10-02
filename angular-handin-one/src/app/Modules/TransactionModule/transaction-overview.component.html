@@ -1,0 +1,26 @@
+<div class="flex flex-col">
+  <div class="flex justify-between bg-zinc-300">
+    <h1 class=" p-4 pl-8 text-2xl italic">Transactions overview</h1>
+    <button>
+      <a
+        class="my-4 mx-8 p-4 border rounded min-w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold "
+        routerLink="/transaction/add"
+      >Add new transaction</a
+      >
+    </button>
+  </div>
+  <div class="flex flex-col items-center">
+    <input
+      type="text"
+      class="m-8 p-4 border rounded min-w-[300px]"
+      placeholder="Filter by ID, amount or date"
+      [(ngModel)]="filterTerm"
+      (input)="filterTransactions(filterTerm)"
+    />
+    <app-transactionslist
+      [transactions]="filteredTransactions"
+      (deleteTransactionEvent)="onDeleteTransaction($event)"
+    ></app-transactionslist>
+
+  </div>
+</div>
