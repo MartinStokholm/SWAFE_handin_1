@@ -7,12 +7,13 @@ The solution will provide the accounting department with an overview of use for 
 
 # Requirement specification
 ## Functional requirements
+
 `F0` ~~Application skeleton~~
 - `F0.1` ~~Skeleton shall contain a navigation bar~~
 - `F0.1.1` ~~Navigation bar shall contain links for navigation to Add credit card screen~~
 - `F0.1.2` ~~Navigation bar shall contain a link for navigation to Transactions screen~~
 - `F0.1.3` ~~Navigation bar shall contain a link for navigation to Home screen~~
-  
+ 
 `F1` ~~Home screen~~
 - `F1.1`: ~~Screen shall contain a list of credit cards~~
 
