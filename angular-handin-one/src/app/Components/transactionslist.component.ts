@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Transaction} from "../../Services/transactions.service";
+import {Transaction} from "../Services/transactions.service";
 
 @Component({
   selector: 'app-transactionslist',

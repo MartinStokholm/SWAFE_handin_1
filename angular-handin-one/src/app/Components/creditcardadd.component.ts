@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
-import {CreditCard, CreditcardService} from "../../Services/creditcard.service";
+import {CreditCard, CreditcardService} from "../Services/creditcard.service";
 
 @Component({
   selector: 'app-creditcardadd',
