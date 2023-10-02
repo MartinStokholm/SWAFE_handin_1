@@ -24,5 +24,11 @@
       </button>
 
     </div>
+
+    <app-transactionslist
+      [transactions]="relatedTransactions"
+      (deleteTransactionEvent)="onDeleteTransaction($event)"
+    ></app-transactionslist>
+
   </div>
 </div>

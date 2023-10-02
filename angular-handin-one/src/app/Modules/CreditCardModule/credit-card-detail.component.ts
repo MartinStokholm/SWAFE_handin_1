@@ -6,7 +6,7 @@ import {Transaction, TransactionsService} from '../../Services/transactions.serv
 @Component({
   selector: 'app-creditcard-detail',
   templateUrl: './credit-card-detail.component.html',
-  styleUrls: ['./credit-card-detail.component.css']
+  styleUrls: ['./credit-card-detail.component.css'],
 })
 export class CreditCardDetailComponent implements OnInit {
   selectedCard: CreditCard = {} as CreditCard;
@@ -21,23 +21,28 @@ export class CreditCardDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.transactionService.getTransactions().subscribe((transactions) => {
-      this.relatedTransactions = transactions.filter((transaction) => {
-        return transaction.credit_card.card_number === this.selectedCard?.card_number;
-      });
-    });
-
     this.route.paramMap.subscribe((params) => {
       const cardNumber = params.get('card_number');
       if (cardNumber) {
         this.creditCardService.getCard(cardNumber).subscribe((card) => {
           this.selectedCard = card;
+
+          // Call findRelatedTransactions after selectedCard is populated
+          this.findRelatedTransactions(this.selectedCard.card_number);
         });
       }
     });
   }
 
-  deleteCard(card_number: number) {
+  findRelatedTransactions(cardholder_name: number): void {
+    this.transactionService.getTransactions().subscribe((transactions: Transaction[]) => {
+      this.relatedTransactions = transactions.filter((transaction: Transaction) => {
+        return transaction.credit_card.card_number === cardholder_name;
+      });
+    });
+  }
+
+  deleteCard(card_number: number): void {
     this.creditCardService.deleteCard(card_number).subscribe((response) => {
       this.navigateToCards();
       console.log(response);
@@ -46,7 +51,13 @@ export class CreditCardDetailComponent implements OnInit {
 
   protected readonly navigator = navigator;
 
-  navigateToCards() {
+  navigateToCards(): void {
     this.router.navigate(['']);
+  }
+
+  onDeleteTransaction($event: string): void {
+    this.transactionService.deleteTransaction($event).subscribe((response) => {
+      console.log(response);
+    });
   }
 }

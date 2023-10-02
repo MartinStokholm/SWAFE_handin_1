@@ -10,7 +10,8 @@
     <!-- Card Information -->
     <div class="mb-4">
       <label for="cardSelect" class="block font-semibold">Select Card:</label>
-      <select id="cardSelect" class="p-2 border rounded min-w-full" [(ngModel)]="selectedCard" name="selectedCard">
+      <select id="cardSelect" class="p-2 border rounded min-w-full" [(ngModel)]="selectedCard" name="selectedCard"
+              (change)="onCardSelect">
         <option *ngFor="let card of cardList" [value]="card">{{ card.cardholder_name }}</option>
       </select>
     </div>

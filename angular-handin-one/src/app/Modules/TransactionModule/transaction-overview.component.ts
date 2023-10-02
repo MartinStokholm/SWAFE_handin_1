@@ -13,8 +13,7 @@ export class TransactionOverviewComponent {
   filteredTransactions: Transaction[] = [];
   filterTerm: string = '';
   cards: CreditCard[] = [];
-
-
+  
   constructor(
     private transactionService: TransactionsService,
     private creditcardService: CreditCardService,
