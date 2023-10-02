@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Transaction, TransactionsService} from "../../Services/transactions.service";
-import {CreditCard, CreditcardService} from "../../Services/creditcard.service";
+import {Transaction, TransactionsService} from "../Services/transactions.service";
+import {CreditCard, CreditcardService} from "../Services/creditcard.service";
 import {Router} from "@angular/router";
 
 @Component({

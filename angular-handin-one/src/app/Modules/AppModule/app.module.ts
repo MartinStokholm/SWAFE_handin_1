@@ -5,31 +5,25 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar.component';
 import {HomeComponent} from './home.component';
-import {CreditcardComponent} from '../credit-card/creditcard.component';
-import {CreditcardDetailComponent} from '../creditcard-detail/creditcard-detail.component';
-import {TransactionslistComponent} from "../../Components/transactionslist.component";
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
-import {DateJoinPipe} from '../../date-join.pipe';
-import {TransactionsComponent} from "../transactions/transactions.component";
+import {CreditCardModule} from "../CreditCardModule/credit-card.module";
+import {TransactionModule} from "../TransactionModule/transaction.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    TransactionsComponent,
-    CreditcardComponent,
-    CreditcardDetailComponent,
-    DateJoinPipe,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    TransactionslistComponent,
     FormsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    CreditCardModule,
+    TransactionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CreditcardService, CreditCard } from '../../Services/creditcard.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CreditCard, CreditcardService} from '../Services/creditcard.service';
 
 @Component({
   selector: 'app-creditcard',
@@ -13,7 +13,8 @@ export class CreditcardComponent implements OnInit {
   constructor(
     private creditCardService: CreditcardService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.creditCardService.getCards().subscribe((cards) => {

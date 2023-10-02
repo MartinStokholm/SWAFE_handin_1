@@ -5,10 +5,10 @@ import {Transaction, TransactionsService} from '../../Services/transactions.serv
 
 @Component({
   selector: 'app-creditcard-detail',
-  templateUrl: './creditcard-detail.component.html',
-  styleUrls: ['./creditcard-detail.component.css']
+  templateUrl: './credit-card-detail.component.html',
+  styleUrls: ['./credit-card-detail.component.css']
 })
-export class CreditcardDetailComponent implements OnInit {
+export class CreditCardDetailComponent implements OnInit {
   selectedCard: CreditCard = {} as CreditCard;
   relatedTransactions: Transaction[] = [];
 
