@@ -1,0 +1,20 @@
+<div class="p-8 flex flex-wrap justify-center gap-8">
+  <div
+    *ngFor="let card of cards"
+    class="hover:scale-105 hover:drop-shadow-2xl rounded-tl-3xl p-4 border rounded cursor-pointer bg-zinc-200 shadow max-w-[500px]"
+    (click)="navigateToCardDetails(card)"
+  >
+    <div class="flex justify-between px-1 py-2 bg-amber-100 min-h-12 rounded-br-3xl">
+      <p class="font-semibold p-2">{{ card.issuer.slice(0, 10) }}</p>
+      <p class="p-2 font-light">{{ card.card_number }}</p>
+    </div>
+    <div class="flex pt-4">
+      <p class="font-extralight italic px-1 pt-2">{{ card.cardholder_name }}</p>
+      <img alt="logo"
+           class="ml-auto"
+           width="50"
+           height="38"
+           ngSrc="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png">
+    </div>
+  </div>
+</div>

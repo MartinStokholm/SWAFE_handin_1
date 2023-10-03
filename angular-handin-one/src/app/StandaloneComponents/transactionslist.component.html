@@ -1,0 +1,55 @@
+<table class="m-8 p-4 border-b-blue-400 border-4">
+  <thead>
+  <tr>
+    <th class="text-left">Transaction ID</th>
+    <th class="text-left">Amount</th>
+    <th class="text-left">Date</th>
+    <th class="text-left">Card info</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let transaction of transactions; let i = index">
+    <tr class="bg-blue-50">
+      <td class="p-4 border-t">
+        <strong>{{ transaction.uid }}</strong>
+      </td>
+      <td class="p-4 border-t">
+        {{ transaction.amount.toFixed(2) }} {{ transaction.currency }}
+      </td>
+      <td class="p-4 border-t">
+        {{ transaction.date | date }}
+      </td>
+      <td class="p-4 border-t hover:text-blue-900 cursor-pointer" (click)="toggleExpand(i)">
+        <span class="text-2xl " *ngIf="!isExpanded[i]">↩️</span>
+        <span class="text-2xl" *ngIf="isExpanded[i]">⤴️</span>
+      </td>
+      <td class="p-4 border-t">
+        <button
+          class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          (click)="deleteTransaction(transaction.uid)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="isExpanded[i]">
+      <td colspan="5" class="pb-8">
+        <div class="p-4 border-t bg-gradient-to-b from-blue-50 to-blue-100 rounded-b-3xl drop-shadow-xl">
+          <strong>Credit Card Details:</strong>
+          <br/>
+          Card Number: {{ transaction.credit_card.card_number }}
+          <br/>
+          CSC Code: {{ transaction.credit_card.csc_code }}
+          <br/>
+          Cardholder Name: {{ transaction.credit_card.cardholder_name }}
+          <br/>
+          Expiration Date: {{ transaction.credit_card.expiration_date_month }}
+          /{{ transaction.credit_card.expiration_date_year }}
+          <br/>
+          Issuer: {{ transaction.credit_card.issuer }}
+        </div>
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
