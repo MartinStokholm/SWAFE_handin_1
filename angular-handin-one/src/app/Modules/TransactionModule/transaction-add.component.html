@@ -1,28 +1,36 @@
-<form #transactionForm="ngForm" (ngSubmit)="onSubmit(transactionForm)">
-  <div>
-    <label for="creditCard">Credit Card:</label>
-    <select id="creditCard" name="creditCard" [(ngModel)]="transactionFormModel.selectedCreditCard" required>
+<form #transactionForm="ngForm" (ngSubmit)="onSubmit(transactionForm)" class="p-4 bg-blue-100 flex flex-col px-8">
+  <div class="mb-4">
+    <label for="creditCard" class="block font-semibold">Credit Card:</label>
+    <select id="creditCard" class="p-2 border rounded min-w-full" name="creditCard"
+            [(ngModel)]="transactionFormModel.credit_card" required>
       <option *ngFor="let card of creditCards" [ngValue]="card">{{ card.cardholder_name }}</option>
     </select>
   </div>
 
   <div>
-    <label for="amount">Amount:</label>
-    <input type="number" id="amount" name="amount" [(ngModel)]="transactionFormModel.amount" required>
+    <label for="amount" class="block font-semibold">Amount:</label>
+    <input type="number" class="p-2 border rounded min-w-full" id="amount" name="amount"
+           [(ngModel)]="transactionFormModel.amount" required>
+  </div>
+  <div class="mb-4">
+    <label for="date" class="block font-semibold">Date:</label>
+    <input type="date" id="date" class="p-2 border rounded min-w-full" [(ngModel)]="transactionFormModel.date"
+           name="date"
+           required>
   </div>
   <div>
-    <label for="comment">Comment:</label>
-    <input type="text" id="comment" name="comment" [(ngModel)]="transactionFormModel.comment">
+    <label for="comment" class="block font-semibold">Comment:</label>
+    <input type="text" class="p-2 border rounded min-w-full" id="comment" name="comment"
+           [(ngModel)]="transactionFormModel.comment">
   </div>
   <div>
-    <label for="currency">Currency:</label>
-    <input type="text" id="currency" name="currency" [(ngModel)]="transactionFormModel.currency">
+    <label for="currency" class="block font-semibold">Currency:</label>
+    <input type="text" class="p-2 border rounded min-w-full" id="currency" name="currency"
+           [(ngModel)]="transactionFormModel.currency">
   </div>
-  <!-- Add more form fields as needed -->
-  <div>
-    <button class="bg-blue-300 hover:bg-blue-500 text-white shadow-2xl hover:shadow-sm rounded-3xl m-4 px-4 py-2"
-            type="submit">
-      Submit
-    </button>
-  </div>
+  <button
+    class="bg-blue-300 min-w-full hover:bg-blue-500 text-white shadow-2xl hover:shadow-sm rounded-3xl my-6 py-2"
+    type="submit">
+    Submit
+  </button>
 </form>

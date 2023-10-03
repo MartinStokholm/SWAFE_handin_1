@@ -9,11 +9,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./transaction-overview.component.css']
 })
 export class TransactionOverviewComponent {
+
   transactions: Transaction[] = [];
   filteredTransactions: Transaction[] = [];
   filterTerm: string = '';
   cards: CreditCard[] = [];
-  
+
   constructor(
     private transactionService: TransactionsService,
     private creditcardService: CreditCardService,

@@ -9,6 +9,7 @@ import {Transaction} from "../Services/transactions.service";
   templateUrl: './transactionslist.component.html',
   styleUrls: ['./transactionslist.component.css']
 })
+
 export class TransactionslistComponent {
   @Input() transactions: Transaction[] = [];
   @Output() deleteTransactionEvent = new EventEmitter<string>(); // Define the event emitter

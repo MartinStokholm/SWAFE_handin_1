@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CreditCard} from "./credit-card.service";
+import {BehaviorSubject, Observable} from "rxjs";
 
 export interface Transaction {
   uid: string;
@@ -22,12 +23,21 @@ export interface Transaction {
   providedIn: 'root'
 })
 export class TransactionsService {
+  transactionsUrl = 'http://localhost:3000/transactions';
+  private transactionsSubject = new BehaviorSubject<Transaction[]>([]);
 
   constructor(private httpClient: HttpClient) {
+    this.initTransactions();
   }
 
-  getTransactions() {
-    return this.httpClient.get<Transaction[]>('http://localhost:3000/transactions');
+  private initTransactions() {
+    this.httpClient.get<Transaction[]>(this.transactionsUrl).subscribe((transactions) => {
+      this.transactionsSubject.next(transactions);
+    });
+  }
+
+  getTransactions(): Observable<Transaction[]> {
+    return this.transactionsSubject.asObservable();
   }
 
   postTransaction(transaction: {

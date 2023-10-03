@@ -18,6 +18,7 @@ export class CreditCardDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
+
   }
 
   ngOnInit(): void {
@@ -26,7 +27,6 @@ export class CreditCardDetailComponent implements OnInit {
       if (cardNumber) {
         this.creditCardService.getCard(cardNumber).subscribe((card) => {
           this.selectedCard = card;
-
           // Call findRelatedTransactions after selectedCard is populated
           this.findRelatedTransactions(this.selectedCard.card_number);
         });
@@ -34,10 +34,10 @@ export class CreditCardDetailComponent implements OnInit {
     });
   }
 
-  findRelatedTransactions(cardholder_name: number): void {
+  findRelatedTransactions(card_number: number): void {
     this.transactionService.getTransactions().subscribe((transactions: Transaction[]) => {
-      this.relatedTransactions = transactions.filter((transaction: Transaction) => {
-        return transaction.credit_card.card_number === cardholder_name;
+      this.relatedTransactions = transactions.filter((transaction) => {
+        return transaction.credit_card.card_number === card_number;
       });
     });
   }
