@@ -1,25 +1,19 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from "@angular/forms";
 import {CreditCard, CreditCardService} from "../Services/credit-card.service";
 import {Router} from "@angular/router";
+import {TransactionModule} from "../Modules/TransactionModule/transaction.module";
 
 @Component({
   selector: 'app-creditcardadd',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, TransactionModule],
   templateUrl: './credit-card-add.component.html',
   styleUrls: ['./credit-card-add.component.css']
 })
 export class CreditCardAddComponent {
-  formData: CreditCard = {
-    card_number: 12345678910,
-    csc_code: 420,
-    cardholder_name: "aName",
-    expiration_date_month: 1,
-    expiration_date_year: 12,
-    issuer: "aCardProvider"
-  };
+
+  formData: CreditCard = {} as CreditCard;
 
   constructor(
     private creditCardService: CreditCardService,

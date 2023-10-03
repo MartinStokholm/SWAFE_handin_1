@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs";
+import {CreditCard} from "./credit-card.service";
 
 export interface Transaction {
+  uid: string;
   credit_card: {
     card_number: number;
     csc_code: number;
@@ -11,7 +12,6 @@ export interface Transaction {
     expiration_date_year: number;
     issuer: string;
   };
-  uid: string;
   amount: number;
   comment: string;
   date: number;
@@ -26,15 +26,23 @@ export class TransactionsService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTransactions(): Observable<any[]> {
+  getTransactions() {
     return this.httpClient.get<Transaction[]>('http://localhost:3000/transactions');
   }
 
-  postTransaction(transaction: Transaction): Observable<any> {
+  postTransaction(transaction: {
+    date: number;
+    credit_card: CreditCard;
+    amount: number;
+    comment: string;
+    currency: string;
+    selectedCreditCard?: CreditCard
+  }) {
+    console.log(transaction)
     return this.httpClient.post<Transaction>('http://localhost:3000/transactions', transaction);
   }
 
-  deleteTransaction(uid: string): Observable<any> {
+  deleteTransaction(uid: string) {
     return this.httpClient.delete<Transaction>(`http://localhost:3000/transactions/${uid}`);
   }
 }

@@ -19,6 +19,9 @@ import {CreditCardService} from "../../Services/credit-card.service";
     TransactionRoutingModule,
     TransactionslistComponent
   ],
+  exports: [
+    FormsModule
+  ],
   providers: [TransactionsService, CreditCardService]
 })
 export class TransactionModule {

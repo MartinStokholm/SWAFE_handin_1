@@ -24,7 +24,7 @@ export class CreditCardService {
     return this.httpClient.get<CreditCard[]>(this.cardUrl);
   }
 
-  getCard(cardNumber: string): Observable<CreditCard> {
+  getCard(cardNumber: string) {
     return this.httpClient.get<CreditCard>(`${this.cardUrl}/${cardNumber}`);
   }
 
