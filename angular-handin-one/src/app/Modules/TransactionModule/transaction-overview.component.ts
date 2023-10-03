@@ -33,8 +33,11 @@ export class TransactionOverviewComponent {
     this.filteredTransactions = this.transactions.filter((transaction) => {
       const searchTerm = filterTerm.toLowerCase();
       const transactionDetails = `
-        ${transaction.uid} ${transaction.amount}
-        ${transaction.currency} ${transaction.date}
+        ${transaction.uid}
+        ${transaction.amount}
+        ${transaction.comment}
+        ${transaction.currency}
+        ${transaction.date}
         ${transaction.credit_card.cardholder_name}
         ${transaction.credit_card.card_number}`.toLowerCase();
       return transactionDetails.includes(searchTerm);

@@ -1,20 +1,24 @@
-<div class="p-8 flex flex-wrap justify-center gap-8">
+<div class="p-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+  <!-- Create a container for each card -->
+
   <div
     *ngFor="let card of cards"
-    class="hover:scale-105 hover:drop-shadow-2xl rounded-tl-3xl p-4 border rounded cursor-pointer bg-zinc-200 shadow max-w-[500px]"
+    class="p-4 cursor-pointer hover:shadow-md bg-blue-100 rounded-tl-3xl duration-300 transform hover:scale-105"
     (click)="navigateToCardDetails(card)"
   >
-    <div class="flex justify-between px-1 py-2 bg-amber-100 min-h-12 rounded-br-3xl">
-      <p class="font-semibold p-2">{{ card.issuer.slice(0, 10) }}</p>
-      <p class="p-2 font-light">{{ card.card_number }}</p>
+    <div class="bg-green-200 rounded-br-3xl py-4 pl-4 pr-12">
+      <!-- Card header with issuer and card number -->
+      <p class="font-semibold text-gray-700">{{ card.issuer.slice(0, 10) }}</p>
+      <p class="text-sm text-gray-500">{{ card.card_number }}</p>
     </div>
-    <div class="flex pt-4">
-      <p class="font-extralight italic px-1 pt-2">{{ card.cardholder_name }}</p>
-      <img alt="logo"
-           class="ml-auto"
-           width="50"
-           height="38"
-           ngSrc="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png">
+    <div class="flex items-center mt-4">
+      <!-- Cardholder name and logo -->
+      <p class="font-light italic text-gray-500">{{ card.cardholder_name }}</p>
+      <img
+        alt="logo"
+        class="ml-auto w-12 h-9"
+        src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png"
+      >
     </div>
   </div>
 </div>

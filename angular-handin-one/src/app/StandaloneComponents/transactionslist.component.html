@@ -1,4 +1,4 @@
-<table class="m-8 p-4 border-b-blue-400 border-4">
+<table class="m-8 p-4 border-b-blue-400 border-4 min-w-[550px] min-h-screen">
   <thead>
   <tr>
     <th class="text-left">Transaction ID</th>
@@ -7,7 +7,7 @@
     <th class="text-left">Card info</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody class="align-top">
   <ng-container *ngFor="let transaction of transactions; let i = index">
     <tr class="bg-blue-50">
       <td class="p-4 border-t">
@@ -32,9 +32,12 @@
         </button>
       </td>
     </tr>
-    <tr *ngIf="isExpanded[i]">
+    <tr *ngIf="isExpanded[i]" class="align-top">
       <td colspan="5" class="pb-8">
         <div class="p-4 border-t bg-gradient-to-b from-blue-50 to-blue-100 rounded-b-3xl drop-shadow-xl">
+          <strong>Comment: </strong> {{ transaction.comment }}
+          <br/>
+          <br/>
           <strong>Credit Card Details:</strong>
           <br/>
           Card Number: {{ transaction.credit_card.card_number }}
