@@ -5,219 +5,157 @@
     Go back
   </button>
 
-  <form class="flex flex-col gap-4 p-8 border-2 mx-8 mt-8 max-w-[600px]" (ngSubmit)="onSubmit()"
-        #creditCardForm="ngForm">
+  <form
+    class="flex flex-col gap-4 p-8 border-2 mx-8 mt-8 max-w-[600px]"
+    [formGroup]="creditCardForm"
+    (ngSubmit)="onSubmit()">
     <!-- Card Number -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="cardNumber">Card Number:</label>
-      <input
-        type="number"
-        id="cardNumber"
-        name="cardNumber"
-        [(ngModel)]="formData.card_number"
-        required
-        pattern="[0-9]+"
-        minlength="7"
-        maxlength="16"
-        class="p-2 border rounded"
-      />
-      <div
-        *ngIf="
-        (creditCardForm.controls['card_number']?.dirty ||
-          creditCardForm.controls['card_number']?.touched) &&
-        creditCardForm.controls['card_number'].errors?.['required']
-      "
-        class="text-red-500"
-      >
-        Card Number is required.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['card_number']?.dirty ||
-          creditCardForm.controls['card_number']?.touched) &&
-        creditCardForm.controls['card_number'].errors?.['pattern']
-      "
-        class="text-red-500"
-      >
-        Card Number must contain only numbers.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['card_number']?.dirty ||
-          creditCardForm.controls['card_number']?.touched) &&
-        creditCardForm.controls['card_number'].errors?.['minlength']
-      "
-        class="text-red-500"
-      >
-        Card Number must be at least 7 digits long.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['card_number']?.dirty ||
-          creditCardForm.controls['card_number']?.touched) &&
-        creditCardForm.controls['card_number'].errors?.['maxlength']
-      "
-        class="text-red-500"
-      >
-        Card Number must not exceed 16 digits.
+      <div class="flex-col">
+        <input
+          type="number"
+          id="cardNumber"
+          name="cardNumber"
+          formControlName="cardNumber"
+          class="p-2 border rounded"
+        />
+        <div *ngIf="creditCardForm.get('cardNumber')?.touched && creditCardForm.get('cardNumber')?.hasError('required')"
+             class="text-red-500">
+          Card Number is required.
+        </div>
+        <div *ngIf="creditCardForm.get('cardNumber')?.touched && creditCardForm.get('cardNumber')?.hasError('pattern')"
+             class="text-red-500">
+          Card Number must contain only numbers.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('cardNumber')?.touched && creditCardForm.get('cardNumber')?.hasError('minlength')"
+          class="text-red-500">
+          Card Number must be at least 7 digits long.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('cardNumber')?.touched && creditCardForm.get('cardNumber')?.hasError('maxlength')"
+          class="text-red-500">
+          Card Number must not exceed 16 digits.
+        </div>
       </div>
     </div>
 
     <!-- Cardholder Name -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="cardholderName">Cardholder Name:</label>
-      <input
-        type="text"
-        id="cardholderName"
-        name="cardholderName"
-        [(ngModel)]="formData.cardholder_name"
-        required
-        class="p-2 border rounded"
-      />
-      <div
-        *ngIf="
-        (creditCardForm.controls['cardholder_name']?.dirty ||
-          creditCardForm.controls['cardholder_name']?.touched) &&
-        creditCardForm.controls['cardholder_name'].errors?.['required']
-      "
-        class="text-red-500"
-      >
-        Cardholder Name is required.
+      <div class="flex-col">
+        <input
+          type="text"
+          id="cardholderName"
+          name="cardholderName"
+          formControlName="cardholderName"
+          class="p-2 border rounded"
+        />
+        <div
+          *ngIf="creditCardForm.get('cardHolderName')?.touched && creditCardForm.get('cardholderName')?.hasError('required')"
+          class="text-red-500">
+          Name is required.
+        </div>
       </div>
     </div>
 
     <!-- CSC Code -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="cscCode">CSC Code:</label>
-      <input
-        type="number"
-        id="cscCode"
-        name="cscCode"
-        [(ngModel)]="formData.csc_code"
-        required
-        pattern="[0-9]+"
-        minlength="3"
-        maxlength="3"
-        class="p-2 border rounded"
-      />
-      <div
-        *ngIf="
-        (creditCardForm.controls['csc_code']?.dirty ||
-          creditCardForm.controls['csc_code']?.touched) &&
-        creditCardForm.controls['csc_code'].errors?.['required']
-      "
-        class="text-red-500"
-      >
-        CSC Code is required.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['csc_code']?.dirty ||
-          creditCardForm.controls['csc_code']?.touched) &&
-        creditCardForm.controls['csc_code'].errors?.['pattern']
-      "
-        class="text-red-500"
-      >
-        CSC Code must contain only numbers.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['csc_code']?.dirty ||
-          creditCardForm.controls['csc_code']?.touched) &&
-        creditCardForm.controls['csc_code'].errors?.['minlength']
-      "
-        class="text-red-500"
-      >
-        CSC Code must be exactly 3 digits long.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['csc_code']?.dirty ||
-          creditCardForm.controls['csc_code']?.touched) &&
-        creditCardForm.controls['csc_code'].errors?.['maxlength']
-      "
-        class="text-red-500"
-      >
-        CSC Code must be exactly 3 digits long.
+      <div class="flex-col">
+        <input
+          type="number"
+          id="cscCode"
+          name="cscCode"
+          formControlName="cscCode"
+          class="p-2 border rounded"
+        />
+        <div *ngIf="creditCardForm.get('cscCode')?.touched && creditCardForm.get('cscCode')?.hasError('required')"
+             class=" text-red-500">
+          CSC Code is required.
+        </div>
+        <div *ngIf="creditCardForm.get('cscCode')?.touched && creditCardForm.get('cscCode')?.hasError('pattern')"
+             class="text-red-500">
+          CSC Code must contain only numbers.
+        </div>
+        <div *ngIf="creditCardForm.get('cscCode')?.touched && creditCardForm.get('cscCode')?.hasError('maxlength')"
+             class="text-red-500">
+          CSC Code must be exactly 3 digits long.
+        </div>
+        <div *ngIf="creditCardForm.get('cscCode')?.touched && creditCardForm.get('cscCode')?.hasError('minlength')"
+             class="text-red-500">
+          CSC Code must be exactly 3 digits long.
+        </div>
       </div>
     </div>
 
     <!-- Expiration Date Month -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="expirationDateMonth">Expiration Date Month:</label>
-      <input
-        type="number"
-        id="expirationDateMonth"
-        name="expirationDateMonth"
-        [(ngModel)]="formData.expiration_date_month"
-        required
-        min="1"
-        max="12"
-        class="p-2 border rounded"
-      />
-      <div
-        *ngIf="
-        (creditCardForm.controls['expiration_date_month']?.dirty ||
-          creditCardForm.controls['expiration_date_month']?.touched) &&
-        creditCardForm.controls['expiration_date_month'].errors?.['required']
-      "
-        class="text-red-500"
-      >
-        Expiration Date Month is required.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['expiration_date_month']?.dirty ||
-          creditCardForm.controls['expiration_date_month']?.touched) &&
-        creditCardForm.controls['expiration_date_month'].errors?.['min']
-      "
-        class="text-red-500"
-      >
-        Expiration Date Month must be at least 1.
-      </div>
-      <div
-        *ngIf="
-        (creditCardForm.controls['expiration_date_month']?.dirty ||
-          creditCardForm.controls['expiration_date_month']?.touched) &&
-        creditCardForm.controls['expiration_date_month'].errors?.['max']
-      "
-        class="text-red-500"
-      >
-        Expiration Date Month must be at most 12.
+      <div class="flex-col">
+        <input
+          type="number"
+          id="expirationDateMonth"
+          name="expirationDateMonth"
+          formControlName="expirationDateMonth"
+          class="p-2 border rounded"
+        />
+        <div
+          *ngIf="creditCardForm.get('expirationDateMonth')?.touched && creditCardForm.get('expirationDateMonth')?.hasError('required')"
+          class="text-red-500">
+          Expiration Month is required.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('expirationDateMonth')?.touched && creditCardForm.get('expirationDateMonth')?.hasError('min')"
+          class="text-red-500">
+          Expiration Month must be at least 1.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('expirationDateMonth')?.touched && creditCardForm.get('expirationDateMonth')?.hasError('max')"
+          class="text-red-500">
+          Expiration Month must be at most 12.
+        </div>
       </div>
     </div>
 
     <!-- Expiration Date Year -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="expirationDateYear">Expiration Date Year:</label>
-      <input
-        type="number"
-        id="expirationDateYear"
-        name="expirationDateYear"
-        [(ngModel)]="formData.expiration_date_year"
-        required
-        class="p-2 border rounded"
-      />
-      <div
-        *ngIf="
-        (creditCardForm.controls['expiration_date_year']?.dirty ||
-          creditCardForm.controls['expiration_date_year']?.touched) &&
-        creditCardForm.controls['expiration_date_year'].errors?.['required']
-      "
-        class="text-red-500"
-      >
-        Expiration Date Year is required.
+      <div class="flex-col">
+        <input
+          type="number"
+          id="expirationDateYear"
+          name="expirationDateYear"
+          formControlName="expirationDateYear"
+          class="p-2 border rounded"
+        />
+        <div
+          *ngIf="creditCardForm.get('expirationDateYear')?.touched && creditCardForm.get('expirationDateYear')?.hasError('required')"
+          class="text-red-500">
+          Expiration Year is required.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('expirationDateYear')?.touched && creditCardForm.get('expirationDateYear')?.hasError('min')"
+          class="text-red-500">
+          Expiration Year must be at least 2020.
+        </div>
+        <div
+          *ngIf="creditCardForm.get('expirationDateYear')?.touched && creditCardForm.get('expirationDateYear')?.hasError('max')"
+          class="text-red-500">
+          Expiration Year must be at most 2069.
+        </div>
       </div>
     </div>
 
     <!-- Issuer (optional) -->
-    <div class="mb-4 flex justify-between">
+    <div class="mb-4 flex justify-between align-middle gap-4">
       <label for="issuer">Issuer:</label>
       <input
         type="text"
         id="issuer"
         name="issuer"
-        [(ngModel)]="formData.issuer"
+        formControlName="issuer"
         class="p-2 border rounded"
       />
     </div>
@@ -226,9 +164,11 @@
     <button
       type="submit"
       [disabled]="creditCardForm.invalid"
-      class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300 ease-in-out"
+      class="py-2 px-4 rounded-full transition-colors duration-300 ease-in-out
+         {{ creditCardForm.invalid ? 'bg-gray-300 cursor-not-allowed opacity-50' : 'bg-blue-500 hover:bg-blue-600 text-white font-semibold' }}"
     >
       Submit
     </button>
+
   </form>
 </div>
