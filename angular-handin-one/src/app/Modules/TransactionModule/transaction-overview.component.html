@@ -1,9 +1,9 @@
-<div class="flex flex-col">
+<div class="flex flex-col min-w-[900px]">
   <div class="flex justify-between mt-8">
     <h1 class=" p-4 pl-8 text-2xl italic">Transactions overview</h1>
     <button>
       <a
-        class="my-4 mx-8 p-4 border rounded min-w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold "
+        class="animate-pulse my-4 mx-8 p-4 border rounded min-w-fit bg-blue-500 hover:bg-blue-700 hover:animate-none text-white font-bold "
         routerLink="/transaction/add"
       >Add new transaction</a
       >
@@ -12,7 +12,7 @@
   <input
     type="text"
     class="m-8 p-4 border rounded min-w-fit bg-gray-200 hover:bg-gray-300 text-black font-bold"
-    placeholder="eg. transaction -id, -amount, -currency, -comment, -date, credit-card -number, -name etc."
+    placeholder="filter here eg. transaction -id, -amount, -currency, -comment, -date, credit-card -number, -name etc."
     [(ngModel)]="filterTerm"
     (input)="filterTransactions(filterTerm)"
   />

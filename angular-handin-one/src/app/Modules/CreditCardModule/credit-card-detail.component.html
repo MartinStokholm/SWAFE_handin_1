@@ -1,14 +1,15 @@
 <div class="flex flex-col my-8">
-  <div class="flex justify-center">
-    <button
-      class="py-2 mb-8 bg-blue-400 hover:bg-blue-600 text-white font-semibold hover:font-bold px-32 rounded-full transition-colors duration-200 ease-in-out shadow-md"
-      (click)=navigateToCards()>
-      Go back
-    </button>
+  <button
+    class="w-[250px] mx-auto py-2 mb-8 bg-blue-400 hover:bg-blue-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
+    (click)=navigateToCards()>
+    Go back
+  </button>
 
-  </div>
+  <h1 class="text-5xl font-light text-blue-900 mx-auto">
+    Credit Card details
+  </h1>
 
-  <div class="mb-16 mx-16 p-8 bg-zinc-200 rounded-tl-3xl">
+  <div class="mb-16 mt-8 mx-16 p-8 bg-blue-100 rounded-tl-3xl">
     <div class="flex justify-between px-1 py-2 bg-green-200 rounded-br-3xl ">
       <p class="font-semibold p-2 text-2xl">{{ selectedCard.issuer}}</p>
       <p class="p-2 text-2xl">{{ selectedCard.card_number }}</p>
