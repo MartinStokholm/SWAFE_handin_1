@@ -12,7 +12,7 @@
   <input
     type="text"
     class="m-8 p-4 border rounded min-w-fit bg-gray-200 hover:bg-gray-300 text-black font-bold"
-    placeholder="eg. transaction -id, -amount, -currency, -comment, -date, credit-card -number, -name etc."
+    placeholder="filter here eg. transaction -id, -amount, -currency, -comment, -date, credit-card -number, -name etc."
     [(ngModel)]="filterTerm"
     (input)="filterTransactions(filterTerm)"
   />
