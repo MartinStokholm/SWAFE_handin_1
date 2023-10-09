@@ -1,36 +1,86 @@
-<form #transactionForm="ngForm" (ngSubmit)="onSubmit(transactionForm)" class="p-4 bg-blue-100 flex flex-col px-8">
-  <div class="mb-4">
-    <label for="creditCard" class="block font-semibold">Credit Card:</label>
-    <select id="creditCard" class="p-2 border rounded min-w-full" name="creditCard"
-            [(ngModel)]="transactionFormModel.credit_card" required>
-      <option *ngFor="let card of creditCards" [ngValue]="card">{{ card.cardholder_name }}</option>
-    </select>
-  </div>
-
-  <div>
-    <label for="amount" class="block font-semibold">Amount:</label>
-    <input type="number" class="p-2 border rounded min-w-full" id="amount" name="amount"
-           [(ngModel)]="transactionFormModel.amount" required>
-  </div>
-  <div class="mb-4">
-    <label for="date" class="block font-semibold">Date:</label>
-    <input type="date" id="date" class="p-2 border rounded min-w-full" [(ngModel)]="transactionFormModel.date"
-           name="date"
-           required>
-  </div>
-  <div>
-    <label for="comment" class="block font-semibold">Comment:</label>
-    <input type="text" class="p-2 border rounded min-w-full" id="comment" name="comment"
-           [(ngModel)]="transactionFormModel.comment">
-  </div>
-  <div>
-    <label for="currency" class="block font-semibold">Currency:</label>
-    <input type="text" class="p-2 border rounded min-w-full" id="currency" name="currency"
-           [(ngModel)]="transactionFormModel.currency">
-  </div>
+<div class="flex flex-col my-8">
   <button
-    class="bg-blue-300 min-w-full hover:bg-blue-500 text-white shadow-2xl hover:shadow-sm rounded-3xl my-6 py-2"
-    type="submit">
-    Submit
+    class="py-2 mb-8 bg-blue-400 hover:bg-blue-600 text-white font-semibold hover:font-bold px-8 rounded-full transition-colors duration-200 ease-in-out shadow-md"
+    (click)=navigateToTransactions()>
+    Go back
   </button>
-</form>
+
+  <h1 class="text-5xl font-light text-blue-900 mx-auto">
+    Add new transaction
+  </h1>
+
+  <form
+    class="flex flex-col gap-4 p-8 border-2 mx-8 mt-8 max-w-[600px]"
+    [formGroup]="transactionForm"
+    (ngSubmit)="onSubmit()">
+    <div class="mb-4 flex justify-between align-middle gap-4">
+      <label for="creditCard" class="block font-semibold">Credit Card:</label>
+      <div class="flex-col">
+        <select id="creditCard" class="p-2 border rounded min-w-full" formControlName="credit_card">
+          <option [ngValue]="null">Select a credit card</option>
+          <option *ngFor="let card of creditCards" [ngValue]="card">{{ card.cardholder_name }}</option>
+        </select>
+        <div
+          *ngIf="transactionForm.get('credit_card')?.touched && transactionForm.get('credit_card')?.hasError('required')"
+          class="text-red-500">
+          Credit Card is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 flex justify-between align-middle gap-4">
+      <label for="amount" class="block font-semibold">Amount:</label>
+      <div class="flex-col">
+        <input type="number" class="p-2 border rounded min-w-full" id="amount" formControlName="amount">
+        <div *ngIf="transactionForm.get('amount')?.touched && transactionForm.get('amount')?.hasError('required')"
+             class="text-red-500">
+          Amount is required.
+        </div>
+        <div *ngIf="transactionForm.get('amount')?.touched && transactionForm.get('amount')?.hasError('min')"
+             class="text-red-500">
+          Amount must be greater than or equal to 0.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 flex justify-between align-middle gap-4">
+      <label for="date" class="block font-semibold">Date:</label>
+      <div class="flex-col">
+        <input type="date" class="p-2 border rounded min-w-full" id="date" formControlName="date">
+        <div *ngIf="transactionForm.get('date')?.touched && transactionForm.get('date')?.hasError('required')"
+             class="text-red-500">
+          Date is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 flex justify-between align-middle gap-4">
+      <label for="comment" class="block font-semibold">Comment:</label>
+      <div class="flex-col">
+        <input type="text" class="p-2 border rounded min-w-full" id="comment" formControlName="comment">
+      </div>
+    </div>
+
+    <div class="mb-4 flex justify-between align-middle gap-4">
+      <label for="currency" class="block font-semibold">Currency:</label>
+      <div class="flex-col">
+        <input type="text" class="p-2 border rounded min-w-full" id="currency" formControlName="currency">
+        <div
+          *ngIf="transactionForm.get('currency')?.touched && transactionForm.get('currency')?.hasError('required')"
+          class="text-red-500">
+          Currency is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      [disabled]="transactionForm.invalid"
+      class="py-2 px-4 rounded-full transition-colors duration-300 ease-in-out
+         {{ transactionForm.invalid ? 'bg-gray-300 cursor-not-allowed opacity-50' : 'bg-blue-500 hover:bg-blue-600 text-white font-semibold' }}"
+    >
+      Submit
+    </button>
+  </form>
+</div>

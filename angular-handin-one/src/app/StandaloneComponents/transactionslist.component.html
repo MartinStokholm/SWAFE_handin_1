@@ -1,4 +1,4 @@
-<table class="m-8 p-4 border-b-blue-400 border-4 min-w-[550px] min-h-screen">
+<table class="m-8 p-4 border-b-blue-400 border-4 min-w-[550px]">
   <thead>
   <tr>
     <th class="text-left">Transaction ID</th>
@@ -32,7 +32,7 @@
         </button>
       </td>
     </tr>
-    <tr *ngIf="isExpanded[i]" class="align-top">
+    <tr *ngIf="isExpanded[i]" class="">
       <td colspan="5" class="pb-8">
         <div class="p-4 border-t bg-gradient-to-b from-blue-50 to-blue-100 rounded-b-3xl drop-shadow-xl">
           <strong>Comment: </strong> {{ transaction.comment }}

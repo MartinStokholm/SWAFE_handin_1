@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TransactionOverviewComponent} from './transaction-overview.component';
 import {TransactionAddComponent} from './transaction-add.component';
 import {TransactionslistComponent} from "../../StandaloneComponents/transactionslist.component";
@@ -17,7 +17,8 @@ import {CreditCardService} from "../../Services/credit-card.service";
     CommonModule,
     FormsModule,
     TransactionRoutingModule,
-    TransactionslistComponent
+    TransactionslistComponent,
+    ReactiveFormsModule
   ],
   exports: [
     FormsModule

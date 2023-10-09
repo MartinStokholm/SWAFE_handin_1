@@ -2,16 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TransactionsService} from '../../Services/transactions.service';
 import {CreditCard, CreditCardService} from '../../Services/credit-card.service';
 import {Router} from '@angular/router';
-import {NgForm} from "@angular/forms";
-
-class TransactionFormModel {
-  credit_card: CreditCard = {} as CreditCard;
-  amount: number = 0;
-  comment: string = '';
-  date: number = Date.now();
-  currency: string = '';
-}
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms'; // Import reactive forms modules
 
 @Component({
   selector: 'app-transaction-add',
@@ -19,15 +10,23 @@ class TransactionFormModel {
   styleUrls: ['./transaction-add.component.css']
 })
 export class TransactionAddComponent implements OnInit {
-  transactionFormModel: TransactionFormModel;
+  transactionForm: FormGroup; // Define a reactive form group
   creditCards: CreditCard[] = [];
 
   constructor(
     private transactionService: TransactionsService,
     private creditCardService: CreditCardService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder // Inject FormBuilder
   ) {
-    this.transactionFormModel = new TransactionFormModel();
+    this.transactionForm = this.formBuilder.group({ // Initialize the form group
+      credit_card: [null, Validators.required], // Add form controls and validators
+      amount: [0, [Validators.required, Validators.min(0)]],
+      comment: [''],
+      date: [new Date(), Validators.required],
+      currency: ['', Validators.required]
+    });
+
     this.creditCardService.getCards().subscribe(cards => {
       this.creditCards = cards;
     });
@@ -39,14 +38,18 @@ export class TransactionAddComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm) {
-    if (form.valid) {
-      const formData = {...this.transactionFormModel};
-      // Now you can use formData to send the form data to your server, including the selected credit card.
+  onSubmit() {
+    if (this.transactionForm.valid) {
+      const formData = {...this.transactionForm.value};
       this.transactionService.postTransaction(formData).subscribe((response) => {
         console.log(response)
         this.router.navigate(['/transaction']).then(r => console.log(r));
       });
     }
   }
+
+  navigateToTransactions() {
+    this.router.navigate(['/transaction']).then(r => console.log(r));
+  }
 }
+
