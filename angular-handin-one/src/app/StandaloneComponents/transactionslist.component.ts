@@ -7,7 +7,6 @@ import {Transaction} from "../Services/transactions.service";
   standalone: true,
   imports: [CommonModule],
   templateUrl: './transactionslist.component.html',
-  styleUrls: ['./transactionslist.component.css']
 })
 
 export class TransactionslistComponent {

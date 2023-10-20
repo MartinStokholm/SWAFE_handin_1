@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 export interface CreditCard {
   card_number: number;
@@ -15,13 +15,22 @@ export interface CreditCard {
   providedIn: 'root'
 })
 export class CreditCardService {
-  private cardUrl = 'http://localhost:3000/cards';
+  cardUrl = 'http://localhost:3000/cards';
+  private cardsSubject = new BehaviorSubject<CreditCard[]>([]);
 
   constructor(private httpClient: HttpClient) {
+    this.initCards();
+  }
+
+  private initCards() {
+
+    this.httpClient.get<CreditCard[]>(this.cardUrl).subscribe((cards) => {
+      this.cardsSubject.next(cards);
+    });
   }
 
   getCards(): Observable<CreditCard[]> {
-    return this.httpClient.get<CreditCard[]>(this.cardUrl);
+    return this.cardsSubject.asObservable();
   }
 
   getCard(cardNumber: string) {
@@ -35,4 +44,6 @@ export class CreditCardService {
   deleteCard(card_number: number) {
     return this.httpClient.delete(`${this.cardUrl}/${card_number}`);
   }
+
+
 }

@@ -6,7 +6,7 @@ import {Transaction, TransactionsService} from '../../Services/transactions.serv
 @Component({
   selector: 'app-creditcard-detail',
   templateUrl: './credit-card-detail.component.html',
-  styleUrls: ['./credit-card-detail.component.css'],
+  styleUrls: [],
 })
 export class CreditCardDetailComponent implements OnInit {
   selectedCard: CreditCard = {} as CreditCard;
@@ -48,8 +48,6 @@ export class CreditCardDetailComponent implements OnInit {
       console.log(response);
     });
   }
-
-  protected readonly navigator = navigator;
 
   navigateToCards(): void {
     this.router.navigate(['']);

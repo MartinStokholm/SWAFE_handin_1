@@ -7,7 +7,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms'; // Import rea
 @Component({
   selector: 'app-transaction-add',
   templateUrl: './transaction-add.component.html',
-  styleUrls: ['./transaction-add.component.css']
 })
 export class TransactionAddComponent implements OnInit {
   transactionForm: FormGroup; // Define a reactive form group

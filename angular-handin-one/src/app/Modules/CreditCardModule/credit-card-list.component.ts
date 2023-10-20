@@ -5,7 +5,7 @@ import {CreditCard, CreditCardService} from '../../Services/credit-card.service'
 @Component({
   selector: 'app-credit-card-list',
   templateUrl: './credit-card-list.component.html',
-  styleUrls: ['./credit-card-list.component.css']
+  styleUrls: []
 })
 export class CreditCardListComponent implements OnInit {
   cards: CreditCard[] = [];

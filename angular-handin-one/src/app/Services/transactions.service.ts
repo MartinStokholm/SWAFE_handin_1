@@ -39,7 +39,7 @@ export class TransactionsService {
   getTransactions(): Observable<Transaction[]> {
     return this.transactionsSubject.asObservable();
   }
-  
+
   postTransaction(transaction: {
     date: number;
     credit_card: CreditCard;
@@ -49,10 +49,10 @@ export class TransactionsService {
     selectedCreditCard?: CreditCard
   }) {
     console.log(transaction)
-    return this.httpClient.post<Transaction>('http://localhost:3000/transactions', transaction);
+    return this.httpClient.post<Transaction>(this.transactionsUrl, transaction);
   }
 
   deleteTransaction(uid: string) {
-    return this.httpClient.delete<Transaction>(`http://localhost:3000/transactions/${uid}`);
+    return this.httpClient.delete<Transaction>(`${this.transactionsUrl}/${uid}`);
   }
 }

@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
   standalone: true,
   imports: [CommonModule, TransactionModule, ReactiveFormsModule],
   templateUrl: './credit-card-add.component.html',
-  styleUrls: ['./credit-card-add.component.css']
+  styleUrls: []
 })
 export class CreditCardAddComponent {
 
