@@ -39,7 +39,7 @@ export class TransactionsService {
   getTransactions(): Observable<Transaction[]> {
     return this.transactionsSubject.asObservable();
   }
-
+  
   postTransaction(transaction: {
     date: number;
     credit_card: CreditCard;
