@@ -14,17 +14,17 @@ import {TransactionsService} from "../../Services/transactions.service";
     CreditCardListComponent,
     CreditCardDetailComponent
   ],
-  exports: [
-    CreditCardListComponent,
-    CreditCardDetailComponent
-  ],
   imports: [
     CommonModule,
     FormsModule,
     NgOptimizedImage,
     CreditCardRoutingModule,
+    TransactionslistComponent,
     DateJoin,
-    TransactionslistComponent
+  ],
+  exports: [
+    CreditCardListComponent,
+    CreditCardDetailComponent
   ],
   providers: [CreditCardService, TransactionsService]
 })
