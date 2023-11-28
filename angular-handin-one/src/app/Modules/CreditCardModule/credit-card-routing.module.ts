@@ -7,8 +7,9 @@ import {CreditCardAddComponent} from "../../StandaloneComponents/credit-card-add
 
 const routes: Routes = [
   {path: '', component: CreditCardListComponent},
-  {path: 'add', component: CreditCardAddComponent},
-  {path: 'details/:card_number', component: CreditCardDetailComponent}
+  {path: 'credit-card/add', component: CreditCardAddComponent},
+  {path: 'credit-card/details/:card_number',
+    component: CreditCardDetailComponent}
 ];
 
 @NgModule({

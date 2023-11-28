@@ -6,7 +6,6 @@ import {HomeComponent} from './home.component';
 import {NavbarComponent} from './navbar.component';
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
-import {CreditCardModule} from "../CreditCardModule/credit-card.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import {CreditCardModule} from "../CreditCardModule/credit-card.module";
     AppRoutingModule,
     FormsModule,
     NgOptimizedImage,
-    CreditCardModule,
   ],
   providers: [],
   bootstrap: [HomeComponent]

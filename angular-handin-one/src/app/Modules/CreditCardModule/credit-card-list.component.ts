@@ -23,7 +23,7 @@ export class CreditCardListComponent implements OnInit {
   }
 
   navigateToCardDetails(card: CreditCard): void {
-    this.router.navigate(['/details', card.card_number])
+    this.router.navigate(['credit-card/details', card.card_number])
       .then(r => console.log(r));
   }
 }
